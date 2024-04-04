@@ -13,7 +13,12 @@ function Footer() {
       </div>
       <h4 className="text-center mt-3">
         Copyright &copy; 2024
-        <a href="#f" className="fs-5 ms-2">
+        <a
+          rel="noreferrer"
+          href="https://www.facebook.com/profile.php?id=100082874253094"
+          className="fs-5 ms-2"
+          target="_blank"
+        >
           Elyes Lounas
         </a>
       </h4>

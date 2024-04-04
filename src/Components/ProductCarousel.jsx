@@ -8,7 +8,7 @@ function ProductCarousel() {
       <div className="text-center">
         <h1>حذاء رياضي</h1>
         <h3 className="text-success mt-3">
-          <span className="text-dark">سعر: </span>3500 دج{" "}
+          <span className="text-dark">سعر: </span>3500 دج
         </h3>
       </div>
       <Carousel className="carousel my-5">

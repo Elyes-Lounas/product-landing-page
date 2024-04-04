@@ -6,6 +6,7 @@ import Validation from "./validation";
 import TextControlsExample from "./Form";
 import ProductDesc from "./ProductDescription";
 import ProductCarousel from "./ProductCarousel";
+import swal from "sweetalert";
 function Home() {
   const [errors, setErrors] = useState({});
   const [value, setValue] = useState({
@@ -15,8 +16,8 @@ function Home() {
     wilaya: "",
     quantity: "",
     priceOfDelivery: "",
-    color: "",
-    size: "",
+    color: "dark",
+    size: "S",
   });
   const [btnText, setBtnText] = useState("إرسال الطلب");
   const [qnt, setQnt] = useState(0);
@@ -62,11 +63,31 @@ function Home() {
     if (value.quantity && value.wilaya && value.priceOfDelivery) {
       let form = e.target;
       let data = new FormData(form);
-      let jsonData = JSON.stringify(Object.fromEntries(data));
-      console.log(jsonData);
+      console.log(Object.fromEntries(data));
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxV-d9tj_WCVrdAz7lpt6FmU_i_6avPpu1pDrhPtP2L4x1K72jpPTlCqFo8Fig14njg/exec";
+      fetch(scriptURL, { method: "POST", body: data })
+        .then(() => {
+          swal({
+            position: "top-end",
+            icon: "success",
+            title: "تم إرسال الطلب",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        })
+        .catch(() => {
+          swal({
+            position: "top-end",
+            icon: "error",
+            title: "تعذر إرسال الطلب يرجى إعادة المحاولة",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        });
       setBtnText("إرسال الطلب...");
       setTimeout(() => {
-        setBtnText(" seccuss");
+        setBtnText(" تم إرسال الطلب");
         setValue({
           name: "",
           phone: "",
