@@ -27,7 +27,7 @@ function Home() {
   const [color, setColor] = useState("dark");
   const [active, setActive] = useState(3);
   const [activeSize, setActiveSize] = useState(0);
-  let priceOfItem = 1000;
+  let priceOfItem = 3500;
   let colors = ["primary", "warning", "success", "dark"];
   let sizes = ["S", "M", "L", "XL"];
   useEffect(() => {
