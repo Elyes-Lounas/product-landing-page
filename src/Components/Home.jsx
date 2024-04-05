@@ -27,6 +27,7 @@ function Home() {
   const [color, setColor] = useState("dark");
   const [active, setActive] = useState(3);
   const [activeSize, setActiveSize] = useState(0);
+  const [clicked, setClicked] = useState(false);
   let priceOfItem = 3500;
   let colors = ["primary", "warning", "success", "dark"];
   let sizes = ["S", "M", "L", "XL"];
@@ -64,6 +65,8 @@ function Home() {
       let form = e.target;
       let data = new FormData(form);
       console.log(Object.fromEntries(data));
+      setClicked(true)
+      setBtnText("إرسال الطلب");
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxV-d9tj_WCVrdAz7lpt6FmU_i_6avPpu1pDrhPtP2L4x1K72jpPTlCqFo8Fig14njg/exec";
       fetch(scriptURL, { method: "POST", body: data })
@@ -75,6 +78,19 @@ function Home() {
             showConfirmButton: false,
             timer: 2000,
           });
+          setBtnText("إرسال الطلب");
+          setValue({
+            name: "",
+            phone: "",
+            address: "",
+            wilaya: "",
+            quantity: "",
+            priceOfDelivery: "",
+          });
+          setQnt(0);
+          setdeleveryPrice(0);
+          setPriceItem(0);
+          setClicked(false)
         })
         .catch(() => {
           swal({
@@ -85,21 +101,7 @@ function Home() {
             timer: 2000,
           });
         });
-      setBtnText("إرسال الطلب...");
-      setTimeout(() => {
-        setBtnText(" تم إرسال الطلب");
-        setValue({
-          name: "",
-          phone: "",
-          address: "",
-          wilaya: "",
-          quantity: "",
-          priceOfDelivery: "",
-        });
-        setQnt(0);
-        setdeleveryPrice(0);
-        setPriceItem(0);
-      }, 3000);
+
       setTimeout(() => {
         setBtnText("إرسال الطلب");
       }, 5000);
@@ -123,6 +125,8 @@ function Home() {
     colors,
     color,
     active,
+    setClicked,
+    clicked,
   };
   return (
     <div className="container">

@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Spline+Sans:wght@300..700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spline+Sans:wght@300..700&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   direction: rtl;
-  font-family: "Noto Sans Arabic";
+  font-family: "Noto Sans Arabic", "Roboto";
 }
 
 footer svg {
@@ -42,4 +42,22 @@ footer h4 {
   object-fit: cover;
   border-radius: 10px;
 }
-/*   */  
+.loader {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

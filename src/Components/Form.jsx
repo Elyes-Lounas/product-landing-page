@@ -1,3 +1,5 @@
+import React from "react";
+import { DZ } from "./dz";
 function TextControlsExample({
   handleSubmit,
   handleChange,
@@ -15,6 +17,7 @@ function TextControlsExample({
   colors,
   color,
   active,
+  clicked,
 }) {
   return (
     <form onSubmit={handleSubmit}>
@@ -71,7 +74,9 @@ function TextControlsExample({
             الولاية*
           </label>
           <select
-            className={`form-select ${errors.wilaya && "border-danger"} `}
+            className={`wilaya form-select ${
+              errors.wilaya && "border-danger"
+            } `}
             aria-label="Default select example"
             name="wilaya"
             onChange={(e) => {
@@ -80,9 +85,13 @@ function TextControlsExample({
             value={value.wilaya}
           >
             <option value="">الولاية</option>
-            <option value="بومرداس">بومرداس</option>
-            <option value="وهران">وهران</option>
-            <option value="الجزائر">الجزائر</option>
+            {DZ.wilayas.map((item) => {
+              return (
+                <option key={item.id} value={item.name}>
+                  {item.name}
+                </option>
+              );
+            })}
           </select>
           {errors.wilaya && (
             <span className="text-danger">{errors.wilaya}</span>
@@ -172,8 +181,15 @@ function TextControlsExample({
           );
         })}
       </div>
-      <div className="text-center my-4">
-        <button className="btn btn-primary w-75">{btnText}</button>
+      <div className="d-flex justify-content-center my-4">
+        <button
+          className={`btn btn-primary d-flex justify-content-center align-items-center px-4 ${
+            clicked && "opacity-75 disabled"
+          }`}
+        >
+          <span>{btnText}</span>
+          {clicked && <span className="loader me-2"></span>}
+        </button>
       </div>
     </form>
   );
