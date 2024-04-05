@@ -101,6 +101,7 @@ function Home() {
             showConfirmButton: false,
             timer: 2000,
           });
+          setClicked(false);
         });
 
       setTimeout(() => {
