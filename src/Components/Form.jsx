@@ -18,6 +18,7 @@ function TextControlsExample({
   color,
   active,
   clicked,
+  total,
 }) {
   return (
     <form onSubmit={handleSubmit}>
@@ -69,6 +70,7 @@ function TextControlsExample({
         </div>
         <input type="hidden" name="color" value={value.color} />
         <input type="hidden" name="size" value={value.size} />
+        <input type="hidden" name="Total" value={`${total} DA`} />
         <div className="col-6">
           <label htmlFor="name" className="form-label">
             الولاية*

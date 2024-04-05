@@ -18,6 +18,7 @@ function Home() {
     priceOfDelivery: "",
     color: "dark",
     size: "S",
+    prix: "",
   });
   const [btnText, setBtnText] = useState("إرسال الطلب");
   const [qnt, setQnt] = useState(0);
@@ -65,7 +66,7 @@ function Home() {
       let form = e.target;
       let data = new FormData(form);
       console.log(Object.fromEntries(data));
-      setClicked(true)
+      setClicked(true);
       setBtnText("إرسال الطلب");
       const scriptURL =
         "https://script.google.com/macros/s/AKfycbxV-d9tj_WCVrdAz7lpt6FmU_i_6avPpu1pDrhPtP2L4x1K72jpPTlCqFo8Fig14njg/exec";
@@ -90,7 +91,7 @@ function Home() {
           setQnt(0);
           setdeleveryPrice(0);
           setPriceItem(0);
-          setClicked(false)
+          setClicked(false);
         })
         .catch(() => {
           swal({
@@ -127,6 +128,7 @@ function Home() {
     active,
     setClicked,
     clicked,
+    total,
   };
   return (
     <div className="container">
