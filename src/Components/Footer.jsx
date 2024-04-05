@@ -5,7 +5,13 @@ function Footer() {
     <footer className="container my-5 ">
       <div className=" position-relative ">
         <div className=" d-flex justify-content-center gap-4 text-primary bg-white mx-auto w-50">
-          <FaFacebook size={25} />
+          <a
+            rel="noreferrer"
+            href="https://www.facebook.com/profile.php?id=100082874253094"
+            target="_blank"
+          >
+            <FaFacebook size={25} />
+          </a>
           <FaInstagram size={25} />
           <FaTiktok size={25} />
         </div>
