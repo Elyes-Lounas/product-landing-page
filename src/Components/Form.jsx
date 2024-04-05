@@ -23,7 +23,7 @@ function TextControlsExample({
     <form onSubmit={handleSubmit}>
       <div className="row ">
         <div className="mb-3 col-6">
-          <label htmlfor="name" className="form-label">
+          <label htmlFor="name" className="form-label">
             إلإسم واللقب*
           </label>
           <input
@@ -38,7 +38,7 @@ function TextControlsExample({
           />
         </div>
         <div className="mb-3 col-6">
-          <label htmlfor="phone" className="form-label">
+          <label htmlFor="phone" className="form-label">
             رقم الهاتف*
           </label>
           <input
@@ -53,7 +53,7 @@ function TextControlsExample({
           />
         </div>
         <div className="mb-3 col-6">
-          <label htmlfor="addrres" className="form-label">
+          <label htmlFor="addrres" className="form-label">
             العنوان*
           </label>
           <input
@@ -70,7 +70,7 @@ function TextControlsExample({
         <input type="hidden" name="color" value={value.color} />
         <input type="hidden" name="size" value={value.size} />
         <div className="col-6">
-          <label htmlfor="name" className="form-label">
+          <label htmlFor="name" className="form-label">
             الولاية*
           </label>
           <select
